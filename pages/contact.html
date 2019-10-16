@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact Me</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+
+      <nav class="menu">
+        <div class="menu-branding">
+          <div class="portrait"></div>
+        </div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="../" class="nav-link">
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./about.html" class="nav-link">
+              About Me
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./work.html" class="nav-link">
+              My Work
+            </a>
+          </li>
+          <li class="nav-item current">
+            <a href="./contact.html" class="nav-link">
+              How To Reach Me
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contact">
+      <h1 class="lg-heading">Contact <span class="text-secondary">Me</span></h1>
+      <h2 class="sm-heading">
+        This is how you can reach me...
+      </h2>
+      <div class="box">
+        <div id="contact-form" class="contact">
+          <form
+            class="emailForm"
+            method="POST"
+            action="https://formspree.io/xznodnqx"
+          >
+            <label class="half" aria-live="polite">
+              Your Email
+              <input class="form-data" name="email" type="email" required />
+            </label>
+            <label class="half" aria-live="polite">
+              Subject
+              <input
+                class="form-data"
+                name="_subject"
+                minlength="4"
+                maxlength="78"
+                required
+              />
+            </label>
+            <label aria-live="polite">
+              Your Message
+              <textarea
+                class="form-data"
+                name="message"
+                minlength="4"
+                maxlength="6000"
+                required
+              ></textarea>
+            </label>
+            <label class="recaptcha-label" aria-live="polite">
+              <div
+                class="g-recaptcha"
+                tabindex="-1"
+                data-sitekey="6Leklb0UAAAAALsG-j9jcSkcIhF0R68YgoFADLES"
+                data-callback="recaptchaClearErr"
+              ></div>
+            </label>
+            <button
+              class="emailFormSubmit main-btn"
+              name="submit"
+              type="submit"
+            >
+              SEND
+            </button>
+
+            <div class="emailFormAlert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer id="main-footer">Marcin Ratajczak Copyright &copy; 2019</footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/form.js"></script>
+  </body>
+</html>

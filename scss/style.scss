@@ -1,0 +1,421 @@
+@import "config";
+@import "menu";
+@font-face {
+  font-family: "Liberty";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/907368/liberty.otf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: lighten($primary-color, 2);
+  }
+
+  &.neon {
+    display: inline-block;
+    font-weight: 100;
+    font-size: 2rem;
+    flex-flow: row;
+    font-family: "Liberty";
+    letter-spacing: -0.25em;
+    padding: 25px;
+    margin: 3rem 8px;
+    border: solid 2px #fff;
+    box-shadow: 0px 0px 25px 2px rgba(189, 21, 189, 0.4),
+      inset 0px 0px 25px 2px rgba(189, 21, 189, 0.4);
+    transition: all 2s;
+
+    &:hover {
+      box-shadow: 0px 0px 25px 2px rgba(0, 246, 255, 0.4),
+        inset 0px 0px 25px 2px rgba(0, 246, 255, 0.4);
+    }
+
+    .letter {
+      color: #d9fdff;
+      text-shadow: 0 0 2rem #00f0ff;
+      display: inline-block;
+
+      &.letter-8 {
+        transform: translate(-0.2rem, 1rem) rotate(10deg);
+        animation: flicker 2s ease-in-out infinite alternate;
+
+        @keyframes flicker {
+          0% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          5% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          5.5% {
+            opacity: 0;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          6% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          6.5% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          7% {
+            opacity: 0;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          8% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+
+          50% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(13deg);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translate(-0.2rem, 1rem) rotate(10deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 0 3rem;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+  }
+}
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "box1 box2 box3";
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 5rem;
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+
+  .box-1 {
+    grid-area: box1;
+  }
+
+  .box-2 {
+    grid-area: box2;
+  }
+
+  .box-3 {
+    grid-area: box3;
+  }
+
+  .experience {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+    margin: 5rem 0;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  &.show {
+    display: block;
+  }
+}
+
+.modal {
+  display: none;
+  background: $primary-color;
+  background-size: cover;
+  width: 1200px;
+  height: 584px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border: $secondary-color 3px solid;
+
+  &.show {
+    display: block;
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0 15px;
+    font-size: 22px;
+    color: $secondary-color;
+
+    &:hover {
+      color: #c23616;
+    }
+  }
+}
+
+#modal-chatApp {
+  background-image: url(../img/chat.png);
+}
+
+#modal-Kanban {
+  background-image: url(../img/kanban.png);
+}
+
+#modal-gameRSP {
+  background-image: url(../img/gameRSP.png);
+}
+
+#modal-country {
+  background-image: url(../img/countryApp.png);
+}
+
+.box {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  border: 3px solid $secondary-color;
+  width: 50%;
+
+  .emailForm label {
+    display: block;
+    margin: 0 0 30px;
+    color: $secondary-color;
+  }
+
+  .emailForm label.half {
+    display: inline-block;
+    width: 49.4%;
+  }
+
+  .emailForm textarea {
+    display: block;
+    padding: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    width: 100%;
+    margin: 0;
+    height: 20vh;
+    resize: none;
+    color: #555;
+    font-size: inherit;
+  }
+
+  .emailForm input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-size: inherit;
+  }
+
+  .emailForm .error {
+    background: rgb(255, 107, 98);
+    position: absolute;
+    margin: 0;
+    display: block;
+    animation: 0.5s slideTop;
+    z-index: -1;
+    border-top: 0 !important;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    max-width: 80%;
+    padding: 0 5px;
+    color: white;
+    font-size: 0.8em;
+  }
+
+  .emailForm button[type="submit"] {
+    width: 20%;
+    cursor: pointer;
+    margin-top: 35px;
+    font-size: 1.1em;
+  }
+
+  .g-recaptcha {
+    margin: 35px 2px 0 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  .recaptcha-label {
+    width: 306px;
+    margin: auto !important;
+    max-width: none;
+  }
+
+  .emailFormAlert {
+    color: #ec3945;
+    padding: 6px 0px;
+    height: 50px;
+    overflow: auto;
+  }
+
+  .emailFormAlert .fa {
+    color: #555;
+  }
+
+  .wrongInput {
+    border: solid 1px #d80000;
+  }
+
+  .main-btn {
+    display: inline-block;
+    color: $primary-color;
+    background: $secondary-color;
+    text-align: center;
+    border: solid;
+    cursor: pointer;
+  }
+
+  .main-btn:hover,
+  .main-btn:focus {
+    text-decoration: none;
+    transform: translateY(-1px);
+    color: $secondary-color;
+    border: solid;
+    background: darken($primary-color, 5);
+  }
+
+  .main-btn:active {
+    transform: translateY(+1px);
+  }
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+@import "mobile";
