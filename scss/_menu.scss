@@ -3,6 +3,9 @@
   z-index: 3;
   right: 35px;
   top: 35px;
+  border-radius: 5px;
+  padding: 5px 5px 0 5px;
+  background-color: darken($primary-color, 5);
   cursor: pointer;
   @include easeOut;
 
