@@ -147,16 +147,10 @@
     }
   }
 
-  .overlay {
-    &.show {
-      display: none;
-    }
-  }
-
   .modal {
-    &.show {
-      display: none;
-    }
+    width: 700px;
+    height: 400px;
+    background-size: 700px 400px;
   }
 
   .box {
@@ -252,17 +246,12 @@
     }
   }
 
-  .overlay {
-    &.show {
-      display: none;
-    }
+  .modal {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
   }
 
-  .modal {
-    &.show {
-      display: none;
-    }
-  }
   main {
     padding: 15px;
   }
