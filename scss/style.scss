@@ -1,5 +1,6 @@
 @import "config";
 @import "menu";
+
 @font-face {
   font-family: "Liberty";
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/907368/liberty.otf");
@@ -154,41 +155,167 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas:
-    "bioimage bio bio"
-    "box1 box2 box3";
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   margin-top: 5rem;
 
   .bio-image {
-    grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
     border: $secondary-color 3px solid;
   }
 
   .bio {
-    grid-area: bio;
+    grid-column: 2/5;
     font-size: 1.5rem;
   }
 
-  .box-1 {
-    grid-area: box1;
+  .progress-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
 
-  .box-2 {
-    grid-area: box2;
+  .progressbar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
   }
 
-  .box-3 {
-    grid-area: box3;
+  .progressbar__track {
+    fill: transparent;
+    stroke: lighten($primary-color, 9);
+    stroke-width: 3px;
   }
 
-  .experience {
-    background: lighten($primary-color, 5);
-    padding: 0.5rem;
-    border-bottom: $secondary-color 5px solid;
-    margin: 5rem 0;
+  .progressbar__thumb {
+    fill: transparent;
+    stroke-width: 3px;
+    stroke-dasharray: 0 calc(30 * 2 * 3.141593);
+    stroke-linecap: round;
+
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.3, 1, 0.3, 1);
+    transform: rotate(-89deg);
+    transform-origin: 50% 50%;
+  }
+
+  .progressbar__thumb--track-1 {
+    stroke: lighten($primary-color, 50);
+    animation-duration: 1.8s;
+  }
+
+  .progressbar__thumb--track-2 {
+    stroke: lighten($primary-color, 50);
+    animation-duration: 1.6s;
+    animation-delay: 0.2s;
+  }
+
+  .progressbar__thumb--track-3 {
+    stroke: $secondary-color;
+    animation-duration: 1.2s;
+    animation-delay: 0.4s;
+  }
+
+  .html .progressbar__thumb--track-3 {
+    animation-name: progressHTML;
+  }
+
+  .css .progressbar__thumb--track-3 {
+    animation-name: progressCSS;
+  }
+
+  .js .progressbar__thumb--track-3 {
+    animation-name: progressJS;
+  }
+
+  .react .progressbar__thumb--track-3 {
+    animation-name: progressREACT;
+  }
+
+  .progress-content {
+    text-align: center;
+  }
+
+  .progress__value {
+    color: $secondary-color;
+    font-size: 1.5em;
+    position: relative;
+    display: inline-block;
+    transform: scale(0);
+    animation: pulse 400ms 1.6s forwards;
+  }
+
+  .progress__value::before {
+    content: "%";
+    font-size: 0.5em;
+    position: absolute;
+    top: 4px;
+    left: 25px;
+  }
+
+  .progress__text {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-height: 0;
+    overflow-y: hidden;
+    animation: flyin 500ms 1.9s forwards;
+  }
+
+  @keyframes progressHTML {
+    to {
+      stroke-dasharray: 170;
+    }
+  }
+
+  @keyframes progressCSS {
+    to {
+      stroke-dasharray: 160;
+    }
+  }
+
+  @keyframes progressJS {
+    to {
+      stroke-dasharray: 140;
+    }
+  }
+
+  @keyframes progressREACT {
+    to {
+      stroke-dasharray: 105;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0);
+    }
+
+    60% {
+      transform: scale(1.4);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes flyin {
+    from {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    to {
+      max-height: 20px;
+      opacity: 0.5;
+    }
   }
 }
 
@@ -208,6 +335,7 @@ main {
   padding: 0.5rem 1rem;
   border: 0;
   margin-bottom: 0.3rem;
+
   &:hover {
     background: $secondary-color;
     color: set-text-color($secondary-color);

@@ -223,28 +223,115 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "box1 box2 box3";
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   margin-top: 5rem; }
   .about-info .bio-image {
-    grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
     border: #33d9b2 3px solid; }
   .about-info .bio {
-    grid-area: bio;
+    grid-column: 2/5;
     font-size: 1.5rem; }
-  .about-info .box-1 {
-    grid-area: box1; }
-  .about-info .box-2 {
-    grid-area: box2; }
-  .about-info .box-3 {
-    grid-area: box3; }
-  .about-info .experience {
-    background: #515151;
-    padding: 0.5rem;
-    border-bottom: #33d9b2 5px solid;
-    margin: 5rem 0; }
+  .about-info .progress-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; }
+  .about-info .progressbar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; }
+  .about-info .progressbar__track {
+    fill: transparent;
+    stroke: #5b5b5b;
+    stroke-width: 3px; }
+  .about-info .progressbar__thumb {
+    fill: transparent;
+    stroke-width: 3px;
+    stroke-dasharray: 0 calc(30 * 2 * 3.141593);
+    stroke-linecap: round;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.3, 1, 0.3, 1);
+    transform: rotate(-89deg);
+    transform-origin: 50% 50%; }
+  .about-info .progressbar__thumb--track-1 {
+    stroke: #c4c4c4;
+    animation-duration: 1.8s; }
+  .about-info .progressbar__thumb--track-2 {
+    stroke: #c4c4c4;
+    animation-duration: 1.6s;
+    animation-delay: 0.2s; }
+  .about-info .progressbar__thumb--track-3 {
+    stroke: #33d9b2;
+    animation-duration: 1.2s;
+    animation-delay: 0.4s; }
+  .about-info .html .progressbar__thumb--track-3 {
+    animation-name: progressHTML; }
+  .about-info .css .progressbar__thumb--track-3 {
+    animation-name: progressCSS; }
+  .about-info .js .progressbar__thumb--track-3 {
+    animation-name: progressJS; }
+  .about-info .react .progressbar__thumb--track-3 {
+    animation-name: progressREACT; }
+  .about-info .progress-content {
+    text-align: center; }
+  .about-info .progress__value {
+    color: #33d9b2;
+    font-size: 1.5em;
+    position: relative;
+    display: inline-block;
+    transform: scale(0);
+    animation: pulse 400ms 1.6s forwards; }
+  .about-info .progress__value::before {
+    content: "%";
+    font-size: 0.5em;
+    position: absolute;
+    top: 4px;
+    left: 25px; }
+  .about-info .progress__text {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-height: 0;
+    overflow-y: hidden;
+    animation: flyin 500ms 1.9s forwards; }
+
+@keyframes progressHTML {
+  to {
+    stroke-dasharray: 170; } }
+
+@keyframes progressCSS {
+  to {
+    stroke-dasharray: 160; } }
+
+@keyframes progressJS {
+  to {
+    stroke-dasharray: 140; } }
+
+@keyframes progressREACT {
+  to {
+    stroke-dasharray: 105; } }
+
+@keyframes pulse {
+  0% {
+    transform: scale(0); }
+  60% {
+    transform: scale(1.4); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes flyin {
+  from {
+    max-height: 0;
+    opacity: 0; }
+  to {
+    max-height: 20px;
+    opacity: 0.5; } }
 
 .projects {
   display: grid;

@@ -1,96 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>About Me</title>
-  </head>
-  <body>
-    <header>
-      <div class="menu-btn">
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>About Me</title>
+</head>
+
+<body>
+  <header>
+    <div class="menu-btn">
+      <div class="btn-line"></div>
+      <div class="btn-line"></div>
+      <div class="btn-line"></div>
+    </div>
+
+    <nav class="menu">
+      <div class="menu-branding">
+        <div class="portrait"></div>
       </div>
+      <ul class="menu-nav">
+        <li class="nav-item">
+          <a href="../" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item current">
+          <a href="./about.html" class="nav-link">
+            About Me
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./work.html" class="nav-link">
+            My Work
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./contact.html" class="nav-link">
+            How To Reach Me
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-      <nav class="menu">
-        <div class="menu-branding">
-          <div class="portrait"></div>
-        </div>
-        <ul class="menu-nav">
-          <li class="nav-item">
-            <a href="../" class="nav-link">
-              Home
-            </a>
-          </li>
-          <li class="nav-item current">
-            <a href="./about.html" class="nav-link">
-              About Me
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./work.html" class="nav-link">
-              My Work
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./contact.html" class="nav-link">
-              How To Reach Me
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="about">
-      <h1 class="lg-heading">About <span class="text-secondary">Me</span></h1>
-      <h2 class="sm-heading">
-        Let me tell you a few things...
-      </h2>
-      <div class="about-info">
-        <img src="../img/my-img.png" alt="Marcin Ratajczak" class="bio-image" />
-        <div class="bio">
-          <h3 class="text-secondary">Hi, my name is Marcin :)</h3>
-          <p>
-            I am a full-stack web developer. Design, build sites and web
-            applications is my passion. I just like sitting with a cup of coffee
-            and writing code, solving problems, creating something out of
-            nothing and enjoy bringing ideas to life in the browser. My second
-            passion is sport climbing. On the wall you also need to be able to
-            solve problems... quickly ;)
-          </p>
-        </div>
-        <div class="experience box-1">
-          <h3 class="text-secondary">What I do:</h3>
-          <p>
-            UX, UI, Websites, Single Page Application, Landing page, Web apps.
-          </p>
-        </div>
-        <div class="experience box-2">
-          <h3 class="text-secondary">Languages and technologies I know:</h3>
-          <p>
-            HTML5, CSS3, RWD, Bootstrap, Sass, Git, AJAX, JavaScript ES6, Node,
-            React, Express, Redux, MongoDB, Webpack, MERN.
-          </p>
-        </div>
-        <div class="experience box-3">
-          <h3 class="text-secondary">Experiences I have:</h3>
-          <p>
-            I completed 6 months bootcamp for web developer. Designed and
-            developed front-end for 10+ websites and over 50 smaller projects.
-          </p>
+  <main id="about">
+    <h1 class="lg-heading">About <span class="text-secondary">Me</span></h1>
+    <h2 class="sm-heading">
+      Let me tell you a few things...
+    </h2>
+    <div class="about-info">
+      <img src="../img/my-img.png" alt="Marcin Ratajczak" class="bio-image" />
+      <div class="bio">
+        <h3 class="text-secondary">Hi, my name is Marcin :)</h3>
+        <p>
+          I am a full-stack web developer. Design, build sites and web
+          applications is my passion. I just like sitting with a cup of coffee
+          and writing code, solving problems, creating something out of
+          nothing and enjoy bringing ideas to life in the browser. My second
+          passion is sport climbing. On the wall you also need to be able to
+          solve problems... quickly ;)
+        </p>
+      </div>
+      <div class="progress-container">
+        <svg class="progressbar html" viewBox="0 0 64 64">
+          <circle class="progressbar__track" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-1" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-2" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-3" cx="50%" cy="50%" r="30px"></circle>
+        </svg>
+        <div class="progress-content">
+          <div class="progress__value">90</div>
+          <div class="progress__text">HTML</div>
         </div>
       </div>
-    </main>
-    <footer id="main-footer">Marcin Ratajczak Copyright &copy; 2019</footer>
-    <script src="../js/main.js"></script>
-  </body>
+      <div class="progress-container">
+        <svg class="progressbar css" viewBox="0 0 64 64">
+          <circle class="progressbar__track" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-1" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-2" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-3" cx="50%" cy="50%" r="30px"></circle>
+        </svg>
+        <div class="progress-content">
+          <div class="progress__value">85</div>
+          <div class="progress__text">CSS</div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <svg class="progressbar js" viewBox="0 0 64 64">
+          <circle class="progressbar__track" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-1" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-2" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-3" cx="50%" cy="50%" r="30px"></circle>
+        </svg>
+        <div class="progress-content">
+          <div class="progress__value">75</div>
+          <div class="progress__text">JS</div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <svg class="progressbar react" viewBox="0 0 64 64">
+          <circle class="progressbar__track" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-1" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-2" cx="50%" cy="50%" r="30px"></circle>
+          <circle class="progressbar__thumb progressbar__thumb--track-3" cx="50%" cy="50%" r="30px"></circle>
+        </svg>
+        <div class="progress-content">
+          <div class="progress__value">60</div>
+          <div class="progress__text">REACT</div>
+        </div>
+      </div>
+  </main>
+  <footer id="main-footer">Marcin Ratajczak Copyright &copy; 2019</footer>
+  <script src="../js/main.js"></script>
+</body>
+
 </html>
